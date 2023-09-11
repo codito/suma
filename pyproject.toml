@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "suma"
+version = "0.0.1"
+dependencies = [
+    "beautifulsoup4",
+    "kmedoids",
+    "markdown",
+    "myl@git+https://github.com/codito/myl.git#egg=master",
+    "nltk",
+    "python-frontmatter",
+    "pyyaml",
+    "rich",
+    "scikit-learn",
+    "sentence-transformers",
+    "wurlitzer"
+]
+readme = { file = "README.md", content-type = "text/markdown" }
+
+[project.optional-dependencies]
+test = ["pytest", "black", "isort"]
+
+[project.scripts]
+suma = "suma.main:main"
+
+
+[tool.setuptools.packages.find]
+where = ["."]  # ["."] by default
+include = ["suma*"]  # ["*"] by default
+exclude = ["suma.tests*"]  # empty by default
+namespaces = false  # true by default
